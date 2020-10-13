@@ -17,5 +17,9 @@ public class LinkController {
 	Link deep2web(@RequestBody Link link) {
 		return new Link(String.format(template, link.getHref()), link.getDeepLink());
 	}
+  @RequestMapping("/")
+  public String home() {
+    return "Linker Up and Running!";
+  }
 
 }
