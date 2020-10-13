@@ -56,56 +56,82 @@ public class LinkControllerTest {
   @Test
   void whenWebProductDetailPageWithNoQueryParams() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
-        "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064"
+        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865",
+        "ty://?Page=Product&ContentId=1925865"
     ));
   }
 
   @Test
   void whenWebProductDetailPageWithBoutiqueId() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
-        "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064"
+        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865?boutiqueId=439892",
+        "ty://?Page=Product&ContentId=1925865&CampaignId=439892"
     ));
   }
 
   @Test
   void whenWebProductDetailPageWithMerchantId() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
-        "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064"
+        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865?merchantId=105064",
+        "ty://?Page=Product&ContentId=1925865&MerchantId=105064"
     ));
   }
 
   @Test
   void whenWebSearchPageComes() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
-        "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064"
+        "https://www.trendyol.com/tum--urunler?q=elbise",
+        "ty://?Page=Search&Query=elbise"
+    ));
+    assertThat(testWebEndpoint(
+        "https://www.trendyol.com/tum--urunler?q=%C3%BCt%C3%BC",
+        "ty://?Page=Search&Query=%C3%BCt%C3%BC"
     ));
   }
 
   @Test
   void whenWebOtherPages() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
-        "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064"
+        "https://www.trendyol.com/Hesabim/Favoriler",
+        "ty://?Page=Home"
+    ));
+    assertThat(testWebEndpoint(
+    "https://www.trendyol.com/Hesabim/#/Siparislerim",
+        "ty://?Page=Home"
     ));
   }
 
   @Test
   void whenDeepProductDetailPageComes() {
+    assertThat(testDeepEndpoint(
+        "https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
+        "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064"
+    ));
 
   }
 
   @Test
   void whenDeepSearchPageComes() {
-
+    assertThat(testDeepEndpoint(
+        "https://www.trendyol.com/tum--urunler?q=elbise",
+        "ty://?Page=Search&Query=elbise"
+    ));
+    assertThat(testDeepEndpoint(
+        "https://www.trendyol.com/tum--urunler?q=%C3%BCt%C3%BC",
+        "ty://?Page=Search&Query=%C3%BCt%C3%BC"
+    ));
   }
 
   @Test
   void whenDeepOtherPages() {
-
+    assertThat(testDeepEndpoint(
+        "https://www.trendyol.com",
+        "ty://?Page=Favorites"
+    ));
+    assertThat(testDeepEndpoint(
+        "https://www.trendyol.com",
+        "ty://?Page=Orders"
+    ));
   }
 
 
@@ -122,8 +148,6 @@ public class LinkControllerTest {
 
       actualResponseBody = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), Link.class);
     } catch (JsonProcessingException e) {
-      e.printStackTrace();
-    } catch (UnsupportedEncodingException e) {
       e.printStackTrace();
     } catch (Exception e) {
       e.printStackTrace();
@@ -144,8 +168,6 @@ public class LinkControllerTest {
 
       actualResponseBody = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), Link.class);
     } catch (JsonProcessingException e) {
-      e.printStackTrace();
-    } catch (UnsupportedEncodingException e) {
       e.printStackTrace();
     } catch (Exception e) {
       e.printStackTrace();
