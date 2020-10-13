@@ -1,20 +1,16 @@
 package com.trendyol.linktransformer;
 
+import lombok.Data;
+
+@Data
 public class Link {
 
-	private final long id;
 	private final String href;
+	private final String deepLink;
 
-	public Link(long id, String href) {
-		this.id = id;
+	public Link(String href, String deepLink) {
 		this.href = href;
+		this.deepLink = deepLink;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public String getHref() {
-		return href;
-	}
 }
