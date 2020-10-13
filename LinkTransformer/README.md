@@ -13,7 +13,7 @@ For project setup, use postgres initilize script provided.
 * docker network ls
 * docker run --name trendyol-db --network trendyol -p 5432:5432   -e POSTGRES_PASSWORD=Passw0rd -d postgres
 
-done creating the db, next steps are not needed but incase if you want to check anything, jump into db console by:
+done creating the db, next steps are not needed but incase if you want to check anything, you can use postbird or jump into db console by:
 * docker exec -it trendyol-db bash
 
 psql -U postgres -W
@@ -24,3 +24,7 @@ to clean the docker parts after all is well(to shut down database and clean what
 
 * docker rm -f trendyol-db
 * docker network rm trendyol
+
+(for more info you can check:
+https://medium.com/@selinkaya.ce/docker-cheatsheet-c3cc7cf83a5c
+)
