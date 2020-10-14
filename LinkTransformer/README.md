@@ -1,10 +1,20 @@
 # SelinKaya
-A Web Service to convert URLs to deeplinks and deeplinks to URLs.
+A Web Service application to convert URLs to deeplinks and deeplinks to URLs. 
 
 There are two endpoints for this transition.
 
 1. web2deep
 2. deep2web
+
+* httpTrace endpoint is enabled in our application: 
+    
+        management.endpoints.web.exposure.include=httptrace
+
+    Could be modified in our application.properties file to disable if necessary.
+    
+    Request and response traces could be monitored via:
+
+        http://localhost:8080/actuator/httptrace/
 
 For project setup, use postgres initilize script provided. 
 

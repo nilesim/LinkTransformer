@@ -15,11 +15,13 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
 @Component
+@Slf4j
 public class LinkService {
 
   @Autowired
@@ -43,10 +45,8 @@ public class LinkService {
     String deepLink = pathLookupRepository.findByPathKey("baseDeepLink").getPathValue();
     String webLink = pathLookupRepository.findByPathKey("baseWebLink").getPathValue();
 
-    // ty://?Page=Product&ContentId=1925865&CampaignId=439892
     String path = link.getDeepLink().replace(deepLink, "");
 
-    // Product&ContentId=1925865&CampaignId=439892
     List<PathLookup> validDeepPaths = pathLookupRepository.findPathLookupsByPathKey("validDeepPath");
     try {
       PathLookup matchedPath = validDeepPaths.stream()
