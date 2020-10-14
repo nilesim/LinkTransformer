@@ -42,7 +42,7 @@ public class CustomExceptionHandler
   public final ResponseEntity<Object> handleNullPointerException(NullPointerException ex, WebRequest request) {
     List<String> details = new ArrayList<>();
     details.add(ex.getLocalizedMessage());
-    ErrorResponse error = new ErrorResponse("URL does not correspond any deep link", details);
+    ErrorResponse error = new ErrorResponse("URL does not correspond any link", details);
     return new ResponseEntity(error, HttpStatus.NOT_FOUND);
   }
 }

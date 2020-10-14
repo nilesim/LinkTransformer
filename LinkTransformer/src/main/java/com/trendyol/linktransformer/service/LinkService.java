@@ -37,8 +37,9 @@ public class LinkService {
     } else if (!link.getDeepLink().isEmpty()) {
       PathLookup lookup = pathLookupRepository.findByPathKey("baseDeepLink");
       return link.getDeepLink().contains(lookup.getPathValue());
+    } else {
+      throw new NullPointerException("Could not be found");
     }
-    return false;
   }
 
   public Link transformDeepToWebLink(Link link) throws MalformedURLException, UnsupportedEncodingException {
