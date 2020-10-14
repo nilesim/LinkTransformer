@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+  app:
+    container_name: linker-api
+    image: linker-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - dbpostgresql
+    networks:
+      - trendyol
+  dbpostgresql:
+    container_name: dbpostgresql
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=Passw0rd
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+
+networks:
+  trendyol:
+    driver: bridge
