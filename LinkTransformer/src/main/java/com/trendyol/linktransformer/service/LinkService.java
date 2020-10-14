@@ -45,7 +45,7 @@ public class LinkService {
     String deepLink = pathLookupRepository.findByPathKey("baseDeepLink").getPathValue();
 
     URL url = new URL(link.getHref());
-    List<PathLookup> validURLPaths = pathLookupRepository.findAllByPathKey("validURLPath");
+    List<PathLookup> validURLPaths = pathLookupRepository.findPathLookupsByPathKey("validURLPath");
     try {
       PathLookup matchedPath = validURLPaths.stream()
           .filter(s -> new AntPathMatcher().match(s.getPathValue(), url.getPath()))
@@ -64,7 +64,9 @@ public class LinkService {
       if (!pathVariable.isEmpty())
         deepLink = deepLink.replace("{" + pathVariable + "}", vars.get(pathVariable));
 
-      if (url.getQuery() != null && !url.getQuery().isEmpty())
+      if (!pathVariable.isEmpty() && url.getQuery() != null && !url.getQuery().isEmpty())
+        deepLink = deepLink + "&" + convertQueryParams(url.getQuery());
+      else if (url.getQuery() != null && !url.getQuery().isEmpty())
         deepLink = deepLink + convertQueryParams(url.getQuery());
     } catch (NoSuchElementException e) {
       deepLink = pathLookupRepository.findByPathKey("homeDeepLink").getPathValue();
@@ -77,14 +79,15 @@ public class LinkService {
     StringBuilder sb = new StringBuilder();
     String[] pairs = query.split("&");
     for (String pair : pairs) {
-      sb.append("&");
+      if (sb.length() > 0)
+        sb.append("&");
       int idx = pair.indexOf("=");
       String name = URLDecoder.decode(pair.substring(0, idx), "UTF-8");
       String deepName = conversionRepository.findConversionByWebKey(name).getDeepKey();
       String value = URLDecoder.decode(pair.substring(idx + 1), "UTF-8");
 
       sb.append(String.format("%s=%s",
-          URLEncoder.encode(deepName, "UTF-8"),
+          deepName,
           URLEncoder.encode(value, "UTF-8")
       ));
     }

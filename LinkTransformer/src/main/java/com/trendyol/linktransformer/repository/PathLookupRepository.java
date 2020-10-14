@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PathLookupRepository extends JpaRepository<PathLookup, Long> {
-  List<PathLookup> findAllByPathKey(String pathKey);
+  List<PathLookup> findPathLookupsByPathKey(String pathKey);
   PathLookup findByPathKey(String pathKey);
 }
 
