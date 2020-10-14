@@ -4,8 +4,11 @@ import com.trendyol.linktransformer.service.LinkService;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 public class LinkController {
@@ -14,24 +17,23 @@ public class LinkController {
 	LinkService linkService;
 
 	@PostMapping("/web2deep")
-	Link web2deep(@RequestBody Link link) {
+  ResponseEntity<Link> web2deep(@RequestBody Link link)
+			throws MalformedURLException, UnsupportedEncodingException {
 		Link linked;
 		linkService.validate(link);
-		try {
-			linked = linkService.transformWebToDeepLink(link);
-			System.out.println("Deep link: " + linked.getDeepLink());
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		return new Link(link.getHref(), link.getDeepLink());
+		linked = linkService.transformWebToDeepLink(link);
+    return new ResponseEntity<Link>(linked, HttpStatus.OK);
 	}
 
 	@PostMapping("/deep2web")
-	Link deep2web(@RequestBody Link link) {
-		return new Link(String.format(link.getHref()), link.getDeepLink());
+	ResponseEntity<Link> deep2web(@RequestBody Link link)
+			throws MalformedURLException, UnsupportedEncodingException {
+		Link linked;
+		linkService.validate(link);
+		linked = linkService.transformDeepToWebLink(link);
+		return new ResponseEntity<Link>(linked, HttpStatus.OK);
 	}
+
   @RequestMapping("/")
   public String home() {
     return "Linker Up and Running!";

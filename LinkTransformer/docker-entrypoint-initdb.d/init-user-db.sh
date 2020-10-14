@@ -21,14 +21,15 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     INSERT INTO WEB_DEEP_CONVERSION VALUES ('/{brand}/{name}-p-{ContentId}',
                                             'Product&ContentId={ContentId}');
 
-    INSERT INTO PATH_LOOKUP VALUES ('baseWebLink', 'https://www.trendyol.com');
-    INSERT INTO PATH_LOOKUP VALUES ('homeWebLink', 'https://www.trendyol.com');
-    INSERT INTO PATH_LOOKUP VALUES ('baseDeepLink', 'ty://?Page=');
-    INSERT INTO PATH_LOOKUP VALUES ('homeDeepLink', 'ty://?Page=Home');
+    INSERT INTO PATH_LOOKUP VALUES (1,'baseWebLink', 'https://www.trendyol.com');
+    INSERT INTO PATH_LOOKUP VALUES (2,'homeWebLink', 'https://www.trendyol.com');
+    INSERT INTO PATH_LOOKUP VALUES (3,'baseDeepLink', 'ty://?Page=');
+    INSERT INTO PATH_LOOKUP VALUES (4,'homeDeepLink', 'ty://?Page=Home');
 
-    INSERT INTO PATH_LOOKUP VALUES ('validURLPath', '/{brand}/{name}-p-{ContentId}');
-    INSERT INTO PATH_LOOKUP VALUES ('validURLPath', '/tum--urunler');
-    INSERT INTO PATH_LOOKUP VALUES ('validDeepPath', 'Product&ContentId');
-    INSERT INTO PATH_LOOKUP VALUES ('validDeepPath', 'Search&Query');
+    INSERT INTO PATH_LOOKUP VALUES (5, 'validURLPath', '/{brand}/{name}-p-{ContentId}');
+    INSERT INTO PATH_LOOKUP VALUES (6, 'validURLPath', '/tum--urunler');
+    INSERT INTO PATH_LOOKUP VALUES (7, 'validDeepPath', 'Product&ContentId');
+    INSERT INTO PATH_LOOKUP VALUES (8, 'validDeepPath', 'Search&Query');
+
 
 EOSQL
