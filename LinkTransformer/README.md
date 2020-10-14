@@ -1,6 +1,14 @@
 # SelinKaya
 A Web Service application to convert URLs to deeplinks and deeplinks to URLs. 
 
+Application is dockerized and a spring boot - maven - postgres - actuator application.
+
+To run:
+
+        docker-compose up --build
+To shutdown and cleanup:
+
+        docker-compose down
 There are two endpoints for this transition.
 
 1. web2deep
@@ -16,7 +24,8 @@ There are two endpoints for this transition.
 
         http://localhost:8080/actuator/httptrace/
 
-For project setup, use postgres initilize script provided. 
+For project setup, postgresql initilize script is provided. 
+docker-compose already initilize it. In case there is an error, db can be initilized as following: 
 
 * cd \LinkTransformer\docker-entrypoint-initdb.d\
 * docker network create trendyol
@@ -40,6 +49,7 @@ https://medium.com/@selinkaya.ce/docker-cheatsheet-c3cc7cf83a5c
 )
 
 <h1>Endpoints</h1>
+<p>Endpoint cases provided below are tested via junit and postman</p>
 <h2>web2deep</h2>
 <table style="border: none;">
 <tbody>
