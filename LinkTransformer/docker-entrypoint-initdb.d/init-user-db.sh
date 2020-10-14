@@ -13,6 +13,12 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
       PATH_VALUE VARCHAR ( 200 )
     );
 
+    CREATE TABLE ENDPOINT_LOGS (
+      id SERIAL,
+      REQUEST VARCHAR ( 256 ),
+      RESPONSE VARCHAR ( 256 )
+    );
+
     INSERT INTO WEB_DEEP_CONVERSION VALUES ('boutiqueId', 'CampaignId');
     INSERT INTO WEB_DEEP_CONVERSION VALUES ('merchantId', 'MerchantId');
     INSERT INTO WEB_DEEP_CONVERSION VALUES ('-p-', 'Product&ContentId');
