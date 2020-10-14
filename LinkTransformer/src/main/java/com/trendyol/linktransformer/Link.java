@@ -1,12 +1,16 @@
 package com.trendyol.linktransformer;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
+@Getter
+@Setter
 public class Link {
 
-	private final String href;
-	private final String deepLink;
+  private String href;
+  private String deepLink;
 
 	public Link(String href, String deepLink) {
 		this.href = href;
