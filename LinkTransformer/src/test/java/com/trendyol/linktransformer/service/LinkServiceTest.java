@@ -35,62 +35,53 @@ class LinkServiceTest {
   }
 
   @Test
-  void whenWebProductDetailPageWithNoQueryParams()
-      throws MalformedURLException, UnsupportedEncodingException {
-    String webLink = "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865";
-    String deepLink = "ty://?Page=Product&ContentId=1925865";
-    Link link = new Link(webLink, "");
-    Link result = linkService.transformWebToDeepLink(link);
-    assertEquals(result.getDeepLink(), deepLink);
+  void whenWebProductDetailPageWithNoQueryParams() {
+    assertThat(testWebEndpoint(
+        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865",
+        "ty://?Page=Product&ContentId=1925865"
+    ));
   }
 
   @Test
-  void whenWebProductDetailPageWithBoutiqueId()
-      throws MalformedURLException, UnsupportedEncodingException {
-    String webLink = "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865?boutiqueId=439892";
-    String deepLink = "ty://?Page=Product&ContentId=1925865&CampaignId=439892";
-    Link link = new Link(webLink, "");
-    Link result = linkService.transformWebToDeepLink(link);
-    assertEquals(result.getDeepLink(), deepLink);
+  void whenWebProductDetailPageWithBoutiqueId() {
+    assertThat(testWebEndpoint(
+        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865?boutiqueId=439892",
+        "ty://?Page=Product&ContentId=1925865&CampaignId=439892"
+    ));
   }
 
   @Test
-  void whenWebProductDetailPageWithMerchantId()
-      throws MalformedURLException, UnsupportedEncodingException {
-    String webLink = "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865?merchantId=105064";
-    String deepLink = "ty://?Page=Product&ContentId=1925865&MerchantId=105064";
-    Link link = new Link(webLink, "");
-    Link result = linkService.transformWebToDeepLink(link);
-    assertEquals(result.getDeepLink(), deepLink);
+  void whenWebProductDetailPageWithMerchantId() {
+    assertThat(testWebEndpoint(
+        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865?merchantId=105064",
+        "ty://?Page=Product&ContentId=1925865&MerchantId=105064"
+    ));
   }
 
   @Test
-  void whenWebSearchPageComes() throws MalformedURLException, UnsupportedEncodingException {
-    String webLink = "https://www.trendyol.com/tum--urunler?q=elbise";
-    String deepLink = "ty://?Page=Search&Query=elbise";
-    Link link = new Link(webLink, "");
-    Link result = linkService.transformWebToDeepLink(link);
-    assertEquals(result.getDeepLink(), deepLink);
-    webLink = "https://www.trendyol.com/tum--urunler?q=%C3%BCt%C3%BC";
-    deepLink = "ty://?Page=Search&Query=%C3%BCt%C3%BC";
-    link = new Link(webLink, "");
-    result = linkService.transformWebToDeepLink(link);
-    assertEquals(result.getDeepLink(), deepLink);
+  void whenWebSearchPageComes() {
+    assertThat(testWebEndpoint(
+        "https://www.trendyol.com/tum--urunler?q=elbise",
+        "ty://?Page=Search&Query=elbise"
+    ));
+    assertThat(testWebEndpoint(
+        "https://www.trendyol.com/tum--urunler?q=%C3%BCt%C3%BC",
+        "ty://?Page=Search&Query=%C3%BCt%C3%BC"
+    ));
   }
 
   @Test
-  void whenWebOtherPages() throws MalformedURLException, UnsupportedEncodingException {
-    String webLink = "https://www.trendyol.com/Hesabim/Favoriler";
-    String deepLink = "ty://?Page=Home";
-    Link link = new Link(webLink, "");
-    Link result = linkService.transformWebToDeepLink(link);
-    assertEquals(result.getDeepLink(), deepLink);
-    webLink = "https://www.trendyol.com/Hesabim/#/Siparislerim";
-    deepLink = "ty://?Page=Home";
-    link = new Link(webLink, "");
-    result = linkService.transformWebToDeepLink(link);
-    assertEquals(result.getDeepLink(), deepLink);
+  void whenWebOtherPages() {
+    assertThat(testWebEndpoint(
+        "https://www.trendyol.com/Hesabim/Favoriler",
+        "ty://?Page=Home"
+    ));
+    assertThat(testWebEndpoint(
+        "https://www.trendyol.com/Hesabim/#/Siparislerim",
+        "ty://?Page=Home"
+    ));
   }
+
 
   @Test
   void whenDeepProductDetailPageFullVars() throws MalformedURLException, UnsupportedEncodingException {
@@ -112,14 +103,17 @@ class LinkServiceTest {
     String webLink = "https://www.trendyol.com/brand/name-p-1925865?boutiqueId=439892";
     assertThat(testDeepEndpoint(webLink,deepLink));
   }
+
   @Test
-  void whenDeepSearchPage() {
-    String deepLink = "https://www.trendyol.com/tum--urunler?q=elbise";
-    String webLink = "ty://?Page=Search&Query=elbise";
-    assertThat(testDeepEndpoint(webLink,deepLink));
-    deepLink = "https://www.trendyol.com/tum--urunler?q=%C3%BCt%C3%BC";
-    webLink = "ty://?Page=Search&Query=%C3%BCt%C3%BC";
-    assertThat(testDeepEndpoint(webLink,deepLink));
+  void whenDeepSearchPageComes() {
+    assertThat(testDeepEndpoint(
+        "https://www.trendyol.com/tum--urunler?q=elbise",
+        "ty://?Page=Search&Query=elbise"
+    ));
+    assertThat(testDeepEndpoint(
+        "https://www.trendyol.com/tum--urunler?q=%C3%BCt%C3%BC",
+        "ty://?Page=Search&Query=%C3%BCt%C3%BC"
+    ));
   }
 
   @Test

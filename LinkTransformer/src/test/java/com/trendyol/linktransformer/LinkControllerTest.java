@@ -46,7 +46,7 @@ public class LinkControllerTest {
 
   @SneakyThrows
   @Test
-  void whenDeepValidInput_thenReturns200() throws Exception {
+  void whenDeepValidInput_thenReturns200() {
     Link link = new Link("",
         "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064");
     mockMvc.perform(post("/deep2web")
@@ -54,7 +54,7 @@ public class LinkControllerTest {
         .contentType("application/json"))
         .andExpect(status().isOk());
   }
-
+/*
   @Test
   void whenWebProductDetailPageWithAllQueryParams() {
     assertThat(testWebEndpoint(
@@ -70,81 +70,7 @@ public class LinkControllerTest {
         "ty://?Page=Product&ContentId=1925865"
     ));
   }
-
-  @Test
-  void whenWebProductDetailPageWithBoutiqueId() {
-    assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865?boutiqueId=439892",
-        "ty://?Page=Product&ContentId=1925865&CampaignId=439892"
-    ));
-  }
-
-  @Test
-  void whenWebProductDetailPageWithMerchantId() {
-    assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865?merchantId=105064",
-        "ty://?Page=Product&ContentId=1925865&MerchantId=105064"
-    ));
-  }
-
-  @Test
-  void whenWebSearchPageComes() {
-    assertThat(testWebEndpoint(
-        "https://www.trendyol.com/tum--urunler?q=elbise",
-        "ty://?Page=Search&Query=elbise"
-    ));
-    assertThat(testWebEndpoint(
-        "https://www.trendyol.com/tum--urunler?q=%C3%BCt%C3%BC",
-        "ty://?Page=Search&Query=%C3%BCt%C3%BC"
-    ));
-  }
-
-  @Test
-  void whenWebOtherPages() {
-    assertThat(testWebEndpoint(
-        "https://www.trendyol.com/Hesabim/Favoriler",
-        "ty://?Page=Home"
-    ));
-    assertThat(testWebEndpoint(
-    "https://www.trendyol.com/Hesabim/#/Siparislerim",
-        "ty://?Page=Home"
-    ));
-  }
-
-  @Test
-  void whenDeepProductDetailPageComes() {
-    assertThat(testDeepEndpoint(
-        "https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
-        "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064"
-    ));
-
-  }
-
-  @Test
-  void whenDeepSearchPageComes() {
-    assertThat(testDeepEndpoint(
-        "https://www.trendyol.com/tum--urunler?q=elbise",
-        "ty://?Page=Search&Query=elbise"
-    ));
-    assertThat(testDeepEndpoint(
-        "https://www.trendyol.com/tum--urunler?q=%C3%BCt%C3%BC",
-        "ty://?Page=Search&Query=%C3%BCt%C3%BC"
-    ));
-  }
-
-  @Test
-  void whenDeepOtherPages() {
-    assertThat(testDeepEndpoint(
-        "https://www.trendyol.com",
-        "ty://?Page=Favorites"
-    ));
-    assertThat(testDeepEndpoint(
-        "https://www.trendyol.com",
-        "ty://?Page=Orders"
-    ));
-  }
-
-
+*/
   Boolean testWebEndpoint(String webLink, String deepLink) {
     Link link = new Link( webLink,"");
     MvcResult mvcResult = null;
