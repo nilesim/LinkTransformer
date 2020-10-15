@@ -1,4 +1,4 @@
-package com.trendyol.linktransformer;
+package com.trendyol.linktransformer.controller;
 
 import com.trendyol.linktransformer.model.ErrorResponse;
 import java.io.UnsupportedEncodingException;

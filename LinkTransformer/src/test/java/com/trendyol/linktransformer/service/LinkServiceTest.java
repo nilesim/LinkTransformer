@@ -1,23 +1,16 @@
 package com.trendyol.linktransformer.service;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.trendyol.linktransformer.Link;
-import com.trendyol.linktransformer.repository.ConversionRepository;
+import com.trendyol.linktransformer.model.Link;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MvcResult;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -1,4 +1,4 @@
-package com.trendyol.linktransformer;
+package com.trendyol.linktransformer.model;
 
 import lombok.Data;
 import lombok.Getter;

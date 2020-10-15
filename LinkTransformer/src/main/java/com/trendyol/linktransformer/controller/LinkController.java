@@ -1,5 +1,6 @@
-package com.trendyol.linktransformer;
+package com.trendyol.linktransformer.controller;
 
+import com.trendyol.linktransformer.model.Link;
 import com.trendyol.linktransformer.service.LinkService;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -8,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 public class LinkController {

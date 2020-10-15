@@ -1,6 +1,6 @@
 package com.trendyol.linktransformer.service;
 
-import com.trendyol.linktransformer.Link;
+import com.trendyol.linktransformer.model.Link;
 import com.trendyol.linktransformer.model.Conversion;
 import com.trendyol.linktransformer.model.PathLookup;
 import com.trendyol.linktransformer.repository.ConversionRepository;
