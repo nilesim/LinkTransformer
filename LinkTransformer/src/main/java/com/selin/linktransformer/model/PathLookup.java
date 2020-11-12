@@ -1,4 +1,4 @@
-package com.trendyol.linktransformer.model;
+package com.selin.linktransformer.model;
 
 import java.util.Objects;
 import javax.persistence.Column;

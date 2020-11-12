@@ -1,7 +1,7 @@
-package com.trendyol.linktransformer.controller;
+package com.selin.linktransformer.controller;
 
-import com.trendyol.linktransformer.model.Link;
-import com.trendyol.linktransformer.service.LinkService;
+import com.selin.linktransformer.model.Link;
+import com.selin.linktransformer.service.LinkService;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LinkController {
 
 	@Autowired
-	LinkService linkService;
+  LinkService linkService;
 
 	@PostMapping("/web2deep")
   ResponseEntity<Link> web2deep(@RequestBody Link link)

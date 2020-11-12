@@ -1,10 +1,10 @@
-package com.trendyol.linktransformer.service;
+package com.selin.linktransformer.service;
 
-import com.trendyol.linktransformer.model.Link;
-import com.trendyol.linktransformer.model.Conversion;
-import com.trendyol.linktransformer.model.PathLookup;
-import com.trendyol.linktransformer.repository.ConversionRepository;
-import com.trendyol.linktransformer.repository.PathLookupRepository;
+import com.selin.linktransformer.model.Link;
+import com.selin.linktransformer.model.Conversion;
+import com.selin.linktransformer.model.PathLookup;
+import com.selin.linktransformer.repository.ConversionRepository;
+import com.selin.linktransformer.repository.PathLookupRepository;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;

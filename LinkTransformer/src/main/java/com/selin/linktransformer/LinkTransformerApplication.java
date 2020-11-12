@@ -1,4 +1,4 @@
-package com.trendyol.linktransformer;
+package com.selin.linktransformer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.trendyol.linktransformer;
+package com.selin.linktransformer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

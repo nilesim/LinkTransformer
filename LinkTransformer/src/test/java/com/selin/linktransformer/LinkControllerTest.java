@@ -1,4 +1,4 @@
-package com.trendyol.linktransformer;
+package com.selin.linktransformer;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -6,9 +6,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.trendyol.linktransformer.controller.LinkController;
-import com.trendyol.linktransformer.model.Link;
-import com.trendyol.linktransformer.service.LinkService;
+import com.selin.linktransformer.controller.LinkController;
+import com.selin.linktransformer.model.Link;
+import com.selin.linktransformer.service.LinkService;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class LinkControllerTest {
   @SneakyThrows
   @Test
   void whenWebValidInput_thenReturns200() {
-    Link link = new Link( "http://www.trendyol.com/casio/saat-p-1925865?boutiqueId=1&merchantId=2",
+    Link link = new Link( "http://www.selin.com/casio/saat-p-1925865?boutiqueId=1&merchantId=2",
         "");
     mockMvc.perform(post("/web2deep")
         .content(objectMapper.writeValueAsString(link))
@@ -57,7 +57,7 @@ public class LinkControllerTest {
   @Test
   void whenWebProductDetailPageWithAllQueryParams() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
+        "https://www.selin.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
         "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064"
     ));
   }
@@ -65,7 +65,7 @@ public class LinkControllerTest {
   @Test
   void whenWebProductDetailPageWithNoQueryParams() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865",
+        "https://www.selin.com/casio/erkek-kol-saati-p-1925865",
         "ty://?Page=Product&ContentId=1925865"
     ));
   }

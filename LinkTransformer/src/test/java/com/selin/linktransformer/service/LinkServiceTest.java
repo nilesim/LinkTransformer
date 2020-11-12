@@ -1,9 +1,9 @@
-package com.trendyol.linktransformer.service;
+package com.selin.linktransformer.service;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
-import com.trendyol.linktransformer.model.Link;
+import com.selin.linktransformer.model.Link;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ class LinkServiceTest {
   @Test
   void whenWebProductDetailPageWithAllQueryParams() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
+        "https://www.selin.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064",
         "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064"
     ));
   }
@@ -30,7 +30,7 @@ class LinkServiceTest {
   @Test
   void whenWebProductDetailPageWithNoQueryParams() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865",
+        "https://www.selin.com/casio/erkek-kol-saati-p-1925865",
         "ty://?Page=Product&ContentId=1925865"
     ));
   }
@@ -38,7 +38,7 @@ class LinkServiceTest {
   @Test
   void whenWebProductDetailPageWithBoutiqueId() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865?boutiqueId=439892",
+        "https://www.selin.com/casio/erkek-kol-saati-p-1925865?boutiqueId=439892",
         "ty://?Page=Product&ContentId=1925865&CampaignId=439892"
     ));
   }
@@ -46,7 +46,7 @@ class LinkServiceTest {
   @Test
   void whenWebProductDetailPageWithMerchantId() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/casio/erkek-kol-saati-p-1925865?merchantId=105064",
+        "https://www.selin.com/casio/erkek-kol-saati-p-1925865?merchantId=105064",
         "ty://?Page=Product&ContentId=1925865&MerchantId=105064"
     ));
   }
@@ -54,11 +54,11 @@ class LinkServiceTest {
   @Test
   void whenWebSearchPageComes() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/tum--urunler?q=elbise",
+        "https://www.selin.com/tum--urunler?q=elbise",
         "ty://?Page=Search&Query=elbise"
     ));
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/tum--urunler?q=%C3%BCt%C3%BC",
+        "https://www.selin.com/tum--urunler?q=%C3%BCt%C3%BC",
         "ty://?Page=Search&Query=%C3%BCt%C3%BC"
     ));
   }
@@ -66,11 +66,11 @@ class LinkServiceTest {
   @Test
   void whenWebOtherPages() {
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/Hesabim/Favoriler",
+        "https://www.selin.com/Hesabim/Favoriler",
         "ty://?Page=Home"
     ));
     assertThat(testWebEndpoint(
-        "https://www.trendyol.com/Hesabim/#/Siparislerim",
+        "https://www.selin.com/Hesabim/#/Siparislerim",
         "ty://?Page=Home"
     ));
   }
@@ -78,14 +78,14 @@ class LinkServiceTest {
 
   @Test
   void whenDeepProductDetailPageFullVars() throws MalformedURLException, UnsupportedEncodingException {
-    String webLink = "https://www.trendyol.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064";
+    String webLink = "https://www.selin.com/casio/saat-p-1925865?boutiqueId=439892&merchantId=105064";
     String deepLink = "ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064";
     assertThat(testDeepEndpoint(webLink,deepLink));
   }
 
   @Test
   void whenDeepProductDetailPageNoVars() throws MalformedURLException, UnsupportedEncodingException {
-    String webLink = "https://www.trendyol.com/brand/name-p-1925865";
+    String webLink = "https://www.selin.com/brand/name-p-1925865";
     String deepLink = "ty://?Page=Product&ContentId=1925865";
     assertThat(testDeepEndpoint(webLink,deepLink));
   }
@@ -93,18 +93,18 @@ class LinkServiceTest {
   @Test
   void whenDeepProductDetailPageOneVar() throws MalformedURLException, UnsupportedEncodingException {
     String deepLink = "ty://?Page=Product&ContentId=1925865&CampaignId=439892";
-    String webLink = "https://www.trendyol.com/brand/name-p-1925865?boutiqueId=439892";
+    String webLink = "https://www.selin.com/brand/name-p-1925865?boutiqueId=439892";
     assertThat(testDeepEndpoint(webLink,deepLink));
   }
 
   @Test
   void whenDeepSearchPageComes() {
     assertThat(testDeepEndpoint(
-        "https://www.trendyol.com/tum--urunler?q=elbise",
+        "https://www.selin.com/tum--urunler?q=elbise",
         "ty://?Page=Search&Query=elbise"
     ));
     assertThat(testDeepEndpoint(
-        "https://www.trendyol.com/tum--urunler?q=%C3%BCt%C3%BC",
+        "https://www.selin.com/tum--urunler?q=%C3%BCt%C3%BC",
         "ty://?Page=Search&Query=%C3%BCt%C3%BC"
     ));
   }
@@ -112,11 +112,11 @@ class LinkServiceTest {
   @Test
   void whenDeepOtherPages() {
     assertThat(testDeepEndpoint(
-        "https://www.trendyol.com",
+        "https://www.selin.com",
         "ty://?Page=Favorites"
     ));
     assertThat(testDeepEndpoint(
-        "https://www.trendyol.com",
+        "https://www.selin.com",
         "ty://?Page=Orders"
     ));
   }

@@ -1,6 +1,6 @@
-package com.trendyol.linktransformer.controller;
+package com.selin.linktransformer.controller;
 
-import com.trendyol.linktransformer.model.ErrorResponse;
+import com.selin.linktransformer.model.ErrorResponse;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;

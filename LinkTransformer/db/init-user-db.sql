@@ -23,8 +23,8 @@
     INSERT INTO WEB_DEEP_CONVERSION VALUES ('/{brand}/{name}-p-{ContentId}',
                                             'Product&ContentId={ContentId}');
 
-    INSERT INTO PATH_LOOKUP VALUES (1,'baseWebLink', 'https://www.trendyol.com');
-    INSERT INTO PATH_LOOKUP VALUES (2,'homeWebLink', 'https://www.trendyol.com');
+    INSERT INTO PATH_LOOKUP VALUES (1,'baseWebLink', 'https://www.selin.com');
+    INSERT INTO PATH_LOOKUP VALUES (2,'homeWebLink', 'https://www.selin.com');
     INSERT INTO PATH_LOOKUP VALUES (3,'baseDeepLink', 'ty://?Page=');
     INSERT INTO PATH_LOOKUP VALUES (4,'homeDeepLink', 'ty://?Page=Home');
 

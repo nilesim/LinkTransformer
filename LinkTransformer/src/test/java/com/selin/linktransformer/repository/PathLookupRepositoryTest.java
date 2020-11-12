@@ -1,8 +1,8 @@
-package com.trendyol.linktransformer.repository;
+package com.selin.linktransformer.repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.trendyol.linktransformer.model.PathLookup;
+import com.selin.linktransformer.model.PathLookup;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

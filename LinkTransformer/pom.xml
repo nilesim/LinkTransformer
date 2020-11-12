@@ -8,11 +8,11 @@
 		<version>2.3.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.trendyol</groupId>
-	<artifactId>LinkTransformer</artifactId>
+	<groupId>com.selin</groupId>
+	<artifactId>Linker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>LinkTransformer</name>
-	<description>Link transformer Web Service for Trendyol</description>
+	<name>Linker</name>
+	<description>Link transformer Web Service for Selin</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -67,7 +67,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>linktransformer</finalName>
+		<finalName>Linker</finalName>
 	</build>
 
 </project>

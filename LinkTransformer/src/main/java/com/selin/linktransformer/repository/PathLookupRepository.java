@@ -1,6 +1,6 @@
-package com.trendyol.linktransformer.repository;
+package com.selin.linktransformer.repository;
 
-import com.trendyol.linktransformer.model.PathLookup;
+import com.selin.linktransformer.model.PathLookup;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

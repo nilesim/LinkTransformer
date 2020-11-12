@@ -1,6 +1,6 @@
-package com.trendyol.linktransformer.repository;
+package com.selin.linktransformer.repository;
 
-import com.trendyol.linktransformer.model.EndpointLog;
+import com.selin.linktransformer.model.EndpointLog;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
