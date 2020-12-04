@@ -1,7 +1,7 @@
 # Linker
 A Web Service application to convert URLs to deeplinks and deeplinks to URLs. 
 
-Application is dockerized and a spring boot - maven - postgres - actuator application.
+Application is dockerized and a <b>spring boot - maven - postgres - actuator</b> application.
 
 To run:
 
